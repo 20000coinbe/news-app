@@ -1,28 +1,24 @@
 <template lang="">
-  <div>
     <div class="user-container">
-      <i class="fa-solid fa-user"></i>
-    </div>
-    <div class="user-description">
       <div>
-        {{ info.id }}
+        <i class="fas fa-user"></i>
+      </div>
+      <div class="user-description">
+        <div>
+          <slot name="username"></slot>
+        </div>
+        <div class="time">
+          <slot name="time"></slot>
+          <slot name="karma"></slot>
+        </div>
       </div>
     </div>
-    <div class="time">
-      {{ info.created }}
-    </div>
-  </div>
 </template>
 <script>
 export default {
   props: {
     info: Object,
   },
-  // computed: {
-  //   userInfo() {
-  //     return this.$store.state.user;
-  //   },
-  // },
 };
 </script>
 <style scoped>

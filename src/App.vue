@@ -4,17 +4,44 @@
     <transition name="fade">
       <router-view></router-view>
     </transition>
+    <spinner :loading="loadingStatus"></spinner>
   </div>
 </template>
 
 <script>
 import ToolBar from "@/components/ToolBar.vue";
+import Spinner from "@/components/Spinner.vue"
+import EventBus from '@/utils/EvnetBus'
 
 export default {
   name: "App",
   components: {
     ToolBar,
+    Spinner
   },
+  data() {
+    return {
+      loadingStatus: false
+    }
+  },
+
+  methods: {
+    startSpinner() {
+      this.loadingStatus = true;
+    },
+    endSpinner() {
+      this.loadingStatus = false
+    }
+  },
+
+  created() {
+    EventBus.$on('start:spinner', this.startSpinner)
+    EventBus.$on('end:spinner', this.endSpinner)
+  },
+  beforeDestroy() {
+    EventBus.$off('start:spinner', this.startSpinner)
+    EventBus.$off('end:spinner', this.endSpinner)
+  }
 };
 </script>
 

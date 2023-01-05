@@ -6,6 +6,7 @@ import AsksView from '@/views/AsksView.vue'
 import UserView from '@/views/UserView.vue'
 import ItemView from '@/views/ItemView.vue'
 import NotFound from '@/components/NotFound.vue'
+import createListView from '@/views/CreateListView';
 
 Vue.use(VueRouter)
 
@@ -14,22 +15,22 @@ export const router = new VueRouter({
   routes: [
     {
       path: '/',
-      redirect: NewsView
+      redirect: '/news'
     },
     {
       path: '/news',
       name: 'news',
-      component: NewsView
+      component: createListView('NewsView')
     },
     {
       path: '/jobs',
       name: 'jobs',
-      component: JobsView
+      component: createListView('JobsView')
     },
     {
       path: '/asks',
       name: 'asks',
-      component: AsksView
+      component: createListView('AsksView')
     },
     {
       path: '/user/:id',

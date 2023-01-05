@@ -18,6 +18,10 @@ export function fetchAsksList() {
   return axios.get(`${config.BASE_URL}/ask/1.json`)
 }
 
+export function fetchList(pageName) {
+  return axios.get(`${config.BASE_URL}/${pageName}/1.json`)
+}
+
 export function fetchUserInfo(username) {
   return axios.get(`${config.BASE_URL}/user/${username}.json`)
 }

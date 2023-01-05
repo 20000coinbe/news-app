@@ -13,9 +13,7 @@ export default {
   components: {
     ListItem,
   },
-  created() {
-    this.$store.dispatch("FETCH_ASKS");
-  },
+  
 };
 </script>
 <style lang="">
